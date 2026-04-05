@@ -1,0 +1,178 @@
+WindowManager:
+    SplashScreen:
+    StartScreen:
+    QuizScreen:
+    ResultScreen:
+    DeveloperScreen:
+
+
+# ---------------- SPLASH SCREEN ----------------
+<SplashScreen>:
+    name: "splash"
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Label:
+            text: "MATH FLASHCARD APP"
+            font_size: 30
+            bold: True
+
+        Label:
+            text: "Learning Made Simple"
+
+        Label:
+            text: "Developed by Johnson E. Iyen +2347030429845"
+
+
+# ---------------- START SCREEN ----------------
+<StartScreen>:
+    name: "start"
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Label:
+            text: "Math Practice App"
+            font_size: 24
+
+        Label:
+            text: "Enter Name"
+
+        TextInput:
+            id: student_name
+            multiline: False
+
+        Label:
+            text: "Select Level"
+
+        Button:
+            text: "Primary 1"
+            on_press: app.set_level("Primary 1")
+
+        Button:
+            text: "Primary 2"
+            on_press: app.set_level("Primary 2")
+
+        Button:
+            text: "Primary 3"
+            on_press: app.set_level("Primary 3")
+
+        Button:
+            text: "Primary 4"
+            on_press: app.set_level("Primary 4")
+
+        Button:
+            text: "Primary 5"
+            on_press: app.set_level("Primary 5")
+
+        Button:
+            text: "Primary 6"
+            on_press: app.set_level("Primary 6")
+
+        Button:
+            text: "About Developer"
+            on_press: app.root.current = "developer"
+
+        Button:
+            text: "Exit App"
+            background_color: 1, 0, 0, 1
+            on_press: app.stop()
+
+
+# ---------------- QUIZ SCREEN ----------------
+<QuizScreen>:
+    name: "quiz"
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Label:
+            id: timer
+            text: "Time: 60"
+
+        Label:
+            id: question
+            text: "Question"
+            font_size: 28
+
+        TextInput:
+            id: answer
+            multiline: False
+
+        Label:
+            id: feedback
+            text: ""
+
+        Label:
+            id: score
+            text: "Score: 0"
+
+        Button:
+            text: "Submit"
+            on_press: app.check_answer()
+
+        Button:
+            text: "Next"
+            on_press: app.next_question()
+
+        Button:
+            text: "End"
+            on_press: app.end()
+
+
+# ---------------- RESULT SCREEN ----------------
+<ResultScreen>:
+    name: "result"
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Label:
+            id: final_score
+            text: "Final Score"
+            font_size: 24
+
+        Button:
+            text: "Restart"
+            on_press: app.restart()
+
+        Button:
+            text: "Exit App"
+            background_color: 1, 0, 0, 1
+            on_press: app.stop()
+
+
+# ---------------- DEVELOPER SCREEN ----------------
+<DeveloperScreen>:
+    name: "developer"
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Label:
+            text: "Developer Information"
+            font_size: 24
+
+        Label:
+            text: "Name: Johnson E. Iyen"
+
+        Label:
+            text: "Role: Teacher & Developer +2347030429845 jowisey@yahoo.com"
+
+        Label:
+            text: "Educational Math App"
+
+        Button:
+            text: "Back"
+            on_press: app.root.current = "start"
